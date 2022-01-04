@@ -1,18 +1,29 @@
 import FeedbackItem from "./FeedbackItem";
 import PropsType from 'prop-types';
+import { AnimatePresence, motion } from "framer-motion";
 
 
 function FeedbackList({ feedback, handleRemove }) {
-    
+
     if (!feedback) {
         return <h2>No data found</h2>
     }
 
     return (
         <div className='feedback-list'>
-            {feedback.map((item, index) => (
-                <FeedbackItem key={index} item={item} handleRemove={handleRemove} />
-            ))}
+            <AnimatePresence>
+                {feedback.map((item, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 1 }}
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1.5 }}
+                        exit={{ opacity: 1 }}
+                    >
+                        <FeedbackItem key={index} item={item} handleRemove={handleRemove} />
+                    </motion.div>
+                ))}
+            </AnimatePresence>
 
         </div>
     )
