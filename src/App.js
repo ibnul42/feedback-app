@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FeedbackForm from "./components/FeedbackForm";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
@@ -7,6 +7,7 @@ import FeedbackData from "./Data/FeedbackData";
 
 
 function App() {
+
     const [feedbackData, setFeedbackData] = useState(FeedbackData);
 
     const handleRemove = (id) => {
