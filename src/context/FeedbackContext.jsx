@@ -1,10 +1,10 @@
-import {createContext, useState} from 'react';
+import { createContext, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import FeedbackData from '../Data/FeedbackData';
 
 const FeedBackContext = createContext();
 
-export const FeedbackProvider = ({children}) => {
+export const FeedbackProvider = ({ children }) => {
     // let data = useState(FeedbackData);
     // console.log(data[0]);
     const [feedback, setFeedback] = useState([
@@ -14,6 +14,11 @@ export const FeedbackProvider = ({children}) => {
             rating: 5
         }
     ]);
+
+    const [feedbackEdit, setfeedbackEdit] = useState({
+        item: {},
+        edit: false
+    })
 
     const handleRemove = (id) => {
         if (window.confirm("Are you sure you want to remove?")) {
@@ -27,13 +32,29 @@ export const FeedbackProvider = ({children}) => {
         setFeedback([newFeedback, ...feedback]);
     }
 
-    return <FeedBackContext.Provider value={{
-        feedback,
-        handleRemove,
-        addFeedback
-    }}>
-        {children}
-    </FeedBackContext.Provider>
+    const editFeedback = (item) => {
+        setfeedbackEdit({
+            item,
+            edit: true
+        })
+    }
+
+    const updateFeedback = (id, updFeedback) => {
+        setFeedback(
+            feedback.map((item) => (item.id === id ? { ...item, ...updFeedback } : item))
+        )
+    }
+
+return <FeedBackContext.Provider value={{
+    feedback,
+    handleRemove,
+    addFeedback,
+    editFeedback,
+    feedbackEdit,
+    updateFeedback
+}}>
+    {children}
+</FeedBackContext.Provider>
 }
 
 export default FeedBackContext;
