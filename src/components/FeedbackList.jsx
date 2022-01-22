@@ -22,10 +22,9 @@ function FeedbackList() {
                 {feedback.map((item, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 1 }}
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1.5 }}
-                        exit={{ opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                     >
                         <FeedbackItem key={index} item={item} />
                     </motion.div>
