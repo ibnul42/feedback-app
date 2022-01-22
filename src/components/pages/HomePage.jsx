@@ -1,4 +1,3 @@
-import FeedbackData from '../../Data/FeedbackData';
 import FeedbackForm from '../FeedbackForm';
 import FeedbackList from '../FeedbackList';
 import FeedbackStats from '../FeedbackStats';

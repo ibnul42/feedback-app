@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import AboutPage from "./components/pages/AboutPage";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/pages/HomePage";
 import AboutIconLink from "./components/Shared/AboutIconLink";
 import { FeedbackProvider } from "./context/FeedbackContext";

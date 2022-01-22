@@ -1,6 +1,5 @@
 import { createContext, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import FeedbackData from '../Data/FeedbackData';
 
 const FeedBackContext = createContext();
 
